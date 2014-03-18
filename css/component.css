@@ -1,0 +1,159 @@
+html, body { height: 100%; }
+
+.perspective {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	-webkit-perspective: 1200px;
+	-moz-perspective: 1200px;
+	perspective: 1200px;
+}
+
+.page {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.page-inner {
+	width: 100%;
+	height: 100%;
+}
+
+.page-inner.darken {
+	background: rgba(0,0,0,0.2);
+}
+
+.page-current,
+.no-js .page {
+	visibility: visible;
+	z-index: 1;
+}
+
+.no-js body {
+	overflow: auto;
+}
+
+.page-ontop {
+	z-index: 999;
+}
+
+.page h1 {
+	position: absolute;
+	font-weight: 300;
+	font-size: 4.4em;
+	line-height: 1;
+	letter-spacing: 6px;
+	margin: 0;
+	top: 12%;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	word-spacing: -0.3em;
+}
+
+.page h1 span {
+	font-family: 'Satisfy', serif;
+	font-weight: 400;
+	font-size: 40%;
+	text-transform: none;
+	word-spacing: 0;
+	letter-spacing: 0;
+	display: block;
+	opacity: 0.4;
+}
+
+.page h1 strong {
+	color: rgba(255,255,255,0.6);
+}
+
+.page-1 {
+	background-image: url('http://farm6.staticflickr.com/5029/5684389452_5ab87c5e50_b.jpg');
+}
+
+.page-2 {
+	background-image: url('http://farm6.staticflickr.com/5223/5684393786_c9c2739a3d_b.jpg');
+}
+
+.page-3 {
+	background-image: url('http://farm6.staticflickr.com/5223/5684391552_c28df1daea_b.jpg');
+}
+
+.page-4 {
+	background-image: url('http://farm6.staticflickr.com/5184/5683825467_3315444d6f_b.jpg');
+}
+
+.page-5 {
+	background-image: url('http://farm6.staticflickr.com/5024/5684385106_dfee12b10c_b.jpg');
+}
+
+.page-6 {
+	background-image: url('http://farm6.staticflickr.com/5101/5683821779_519a75c821_b.jpg');
+}
+
+.caret-button {
+	position: absolute;
+	top: 50%;
+	height: 60px;
+	width: 35px;
+	margin-top: -30px;
+	padding: 0;
+	border: none;
+	background: none;
+	color: rgba(255,255,255,0.5);
+	font-size: 96px;
+	line-height: 96px;
+	cursor: pointer;
+	z-index: 9999;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.caret-button:focus,
+.caret-button:active,
+.caret-button:hover {
+	color: rgba(255,255,255,0.8);
+	outline: 0;
+}
+
+.caret-button > i {
+	position: absolute;
+	top: -18px;
+	left: 0;
+}
+
+.caret-button.left {
+	left: 2%;
+}
+
+.caret-button.right {
+	right: 2%;
+}
+
+@media screen and (max-width: 47.4375em) {
+	.page h1 {
+		font-size: 3em;
+	}
+}

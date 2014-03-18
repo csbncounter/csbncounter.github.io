@@ -1,0 +1,3 @@
+name: CSB Battalion N-Counter 2016
+markdown: redcarpet
+exclude: [Gemfile, Gemfile.lock]
