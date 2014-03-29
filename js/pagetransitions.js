@@ -3,8 +3,9 @@ var PageTransitions = (function() {
 	var $main = $( '#main' ),
 		$pages = $main.children( 'div.page' ),
 		$navLinks = $( '.nav-link' ),
-		$next = $( '#nextButton' ),
-		$prev = $( '#prevButton' ),
+		$next = $( '#next-button' ),
+		$prev = $( '#prev-button' ),
+		$action = $( '#action-button' ),
 		nextTransition = 1,
 		prevTransition = 2,
 		animcursor = 1,
@@ -29,7 +30,7 @@ var PageTransitions = (function() {
 		$pages.each( function() {
 			var $page = $( this );
 			$page.data( 'originalClassList', $page.attr( 'class' ) );
-		} );
+		});
 
 		$pages.eq( current ).addClass( 'page-current' );
 
@@ -40,7 +41,7 @@ var PageTransitions = (function() {
 			changePage( current + 1 );
 			$navLinks.removeClass( 'active' );
 			$navLinks.eq( current ).addClass( 'active' );
-		} );
+		});
 
 		$prev.on( 'click', function() {
 			if( isAnimating ) {
@@ -49,14 +50,30 @@ var PageTransitions = (function() {
 			changePage( current - 1 );
 			$navLinks.removeClass( 'active' );
 			$navLinks.eq( current ).addClass( 'active' );
-		} );
+		});
 
-		$navLinks.on( 'click', function(evt) {
+		$navLinks.on( 'click', function( evt ) {
 			evt.preventDefault();
-			changePage( parseInt( $(this).data('page') ) - 1 );
+			changePage( parseInt( $( this ).data( 'page' ) ) - 1 );
 			$navLinks.removeClass( 'active' );
 			$(this).addClass( 'active' );
-		} );
+		});
+
+		$action.on( 'click', function( evt ) {
+			$( '.js-freeze-height' ).css( 'height', $( window ).height() + 'px' );
+			$( 'body' ).css( {
+				'overflow': 'auto',
+				'height': 'auto'
+			});
+			$( '.js-show-details' ).show();
+			setTimeout( function() {
+				$.scrollTo( '.js-show-details', 600, function() {
+					$( '.js-show-details .js-tabstop' ).focus();
+				});
+			}, 1 );
+		});
+
+		$( '.js-show-details' ).hide();
 	}
 
 	function changePage( page ) {
@@ -398,8 +415,6 @@ var PageTransitions = (function() {
 		endNextPage = false;
 		resetPage( $outpage, $inpage );
 		isAnimating = false;
-		console.log($inpage);
-		$inpage.find('.tabstop').focus();
 	}
 
 	function resetPage( $outpage, $inpage ) {
