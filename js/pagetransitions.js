@@ -37,7 +37,7 @@ var PageTransitions = (function() {
 			if( isAnimating ) {
 				return false;
 			}
-			nextPage( nextTransition );
+			changePage( current + 1 );
 			$navLinks.removeClass( 'active' );
 			$navLinks.eq( current ).addClass( 'active' );
 		} );
@@ -46,7 +46,7 @@ var PageTransitions = (function() {
 			if( isAnimating ) {
 				return false;
 			}
-			prevPage( prevTransition );
+			changePage( current - 1 );
 			$navLinks.removeClass( 'active' );
 			$navLinks.eq( current ).addClass( 'active' );
 		} );
@@ -77,95 +77,15 @@ var PageTransitions = (function() {
 			animation = prevTransition;
 		}
 
+		// wrap page
+		// (does not work for abs(page) > pageCount * 2)
+		if ( page > pagesCount - 1 ) {
+			page = page - pagesCount;
+		} else if ( page < 0 ) {
+			page = page + pagesCount;
+		}
+
 		current = page;
-
-		var $nextPage = $pages.eq( current ).addClass( 'page-current' ),
-			animationClasses = getAnimationClasses( animation ),
-			outClass = animationClasses.outClass,
-			inClass = animationClasses.inClass;
-
-		$currPage.addClass( outClass ).on( animEndEventName, function() {
-			$currPage.off( animEndEventName );
-			endCurrPage = true;
-			if( endNextPage ) {
-				onEndAnimation( $currPage, $nextPage );
-			}
-		} );
-
-		$nextPage.addClass( inClass ).on( animEndEventName, function() {
-			$nextPage.off( animEndEventName );
-			endNextPage = true;
-			if( endCurrPage ) {
-				onEndAnimation( $currPage, $nextPage );
-			}
-		} );
-
-		if( !support ) {
-			onEndAnimation( $currPage, $nextPage );
-		}
-
-	}
-
-	function nextPage( animation ) {
-
-		if( isAnimating ) {
-			return false;
-		}
-
-		isAnimating = true;
-		
-		var $currPage = $pages.eq( current );
-
-		if( current < pagesCount - 1 ) {
-			++current;
-		}
-		else {
-			current = 0;
-		}
-
-		var $nextPage = $pages.eq( current ).addClass( 'page-current' ),
-			animationClasses = getAnimationClasses( animation ),
-			outClass = animationClasses.outClass,
-			inClass = animationClasses.inClass;
-
-		$currPage.addClass( outClass ).on( animEndEventName, function() {
-			$currPage.off( animEndEventName );
-			endCurrPage = true;
-			if( endNextPage ) {
-				onEndAnimation( $currPage, $nextPage );
-			}
-		} );
-
-		$nextPage.addClass( inClass ).on( animEndEventName, function() {
-			$nextPage.off( animEndEventName );
-			endNextPage = true;
-			if( endCurrPage ) {
-				onEndAnimation( $currPage, $nextPage );
-			}
-		} );
-
-		if( !support ) {
-			onEndAnimation( $currPage, $nextPage );
-		}
-
-	}
-
-	function prevPage( animation ) {
-
-		if( isAnimating ) {
-			return false;
-		}
-
-		isAnimating = true;
-		
-		var $currPage = $pages.eq( current );
-
-		if( current > 0 ) {
-			--current;
-		}
-		else {
-			current = pagesCount - 1;
-		}
 
 		var $nextPage = $pages.eq( current ).addClass( 'page-current' ),
 			animationClasses = getAnimationClasses( animation ),
