@@ -60,6 +60,8 @@ var PageTransitions = (function() {
 		});
 
 		$action.on( 'click', function( evt ) {
+			var self = this;
+
 			$( '.js-freeze-height' ).css( 'height', $( window ).height() + 'px' );
 			$( 'body' ).css( {
 				'overflow': 'auto',
@@ -67,6 +69,7 @@ var PageTransitions = (function() {
 			});
 			$( '.js-show-details' ).show();
 			setTimeout( function() {
+				$( self ).fadeOut();
 				$.scrollTo( '.js-show-details', 600, function() {
 					$( '.js-show-details .js-tabstop' ).focus();
 				});

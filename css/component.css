@@ -124,6 +124,7 @@ html, body { height: 100%; }
 	background: rgba(0,0,0,0.5);
 	color: rgb(200,200,200);
 	font-size: 22px;
+	font-weight: bold;
 	text-transform: uppercase;
 }
 
