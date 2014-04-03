@@ -28,7 +28,7 @@ a:hover {
 	background: #fff;
 	background: rgba(255, 255, 255, 0.1);
 	text-transform: uppercase;
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	font-size: 0.68em;
 	line-height: 2.2;
