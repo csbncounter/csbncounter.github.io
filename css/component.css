@@ -226,12 +226,7 @@ html, body { height: 100%; }
   background: none;
   font-size: 40px;
   font-weight: 100;
-  color: #ccc;
   transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
-}
-
-.scroll-button-dark {
-  color: black;
 }
