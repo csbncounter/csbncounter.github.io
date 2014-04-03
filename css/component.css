@@ -181,11 +181,6 @@ html, body { height: 100%; }
   }
 }
 
-.details {
-  max-width: 1040px;
-  marigin: 0 auto;
-}
-
 .featurette {
   position: relative;
   padding: 0 40px;
@@ -207,7 +202,7 @@ html, body { height: 100%; }
 .featurette h2 {
   position: relative;
   top: 50%;
-  margin-top: -20px;
+  margin-top: -40px;
   font-size: 32px;
   font-weight: 300;
 }

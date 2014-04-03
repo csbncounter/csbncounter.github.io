@@ -71,7 +71,6 @@ var PageTransitions = (function() {
       });
       $('.js-show-details').show();
       setTimeout(function() {
-        $(self).fadeOut();
         $.scrollTo('.js-show-details', 600, function() {
           $('.js-show-details .js-tabstop').focus();
         });
