@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Satisfy);
 
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-body, html { font-size: 100%; padding: 0; margin: 0;}
+body, html { font-size: 100%; padding: 0; margin: 0; height: 100%; }
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after { content: " "; display: table; }
@@ -21,6 +21,10 @@ a {
 
 a:hover {
 	color: #fff;
+}
+
+strong {
+	font-weight: 400;
 }
 
 /* Header Style */
