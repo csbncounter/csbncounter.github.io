@@ -189,11 +189,12 @@
   font-weight: 300;
 }
 
-.featurette img {
-  width: 650px;
-  margin-top: 80px;
-  margin-bottom: 40px;
-  opacity: 0.5;
+.featurette .csb-logo {
+  position: absolute;
+  height: 90px;
+  bottom: 50px;
+  margin-left: -67.5px;
+  opacity: 0.3;
 }
 
 .scroll-button {

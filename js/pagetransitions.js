@@ -64,7 +64,7 @@ var PageTransitions = (function() {
       var self = this,
           winHeightPx = $(window).height() + 'px';
 
-      $('.js-freeze-height').css('height', winHeightPx);
+      $('.js-freeze-height').css('min-height', winHeightPx);
       $('body').css({
         'overflow': 'auto',
         'height': 'auto'
