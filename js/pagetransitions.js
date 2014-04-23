@@ -15,6 +15,7 @@ var PageTransitions = (function() {
       isAnimating = false,
       endCurrPage = false,
       endNextPage = false,
+      actionClicked = false,
       animEndEventNames = {
         'WebkitAnimation' : 'webkitAnimationEnd',
         'OAnimation' : 'oAnimationEnd',
@@ -75,6 +76,14 @@ var PageTransitions = (function() {
           $('.js-show-details .js-tabstop').focus();
         });
       }, 1);
+      
+      if (!actionClicked) {
+        ga('send', 'pageview', {
+          'page': '/more',
+          'title': 'More Information'
+        });
+        actionClicked = true;
+      }
     });
 
     $scrollButtons.on('click', function(evt) {
